@@ -1,0 +1,32 @@
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@4.4.1
+  - smartcontractkit/chainlink-brownie-contracts@0.3.0
+compiler:
+  solc:
+    remappings:
+      - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.4.1'
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@0.3.0'
+dotenv: .env
+wallets:
+  from_key: ${PRIVATE_KEY}
+networks:
+  development:
+    keyhash: '0x'
+    fee: 100000000000000000
+  rinkeby:
+    vrf_coordinator: '0x'
+    link_token: '0x'
+    key_hash: '0x'
+    fee: 100000000000000000
+
+
+
+
+
+
+
+
+
+#import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+#import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+#import "@openzeppelin/contracts/utils/Counters.sol";
