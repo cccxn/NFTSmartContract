@@ -16,3 +16,11 @@ Initial Set-Up
 NFT Framework
 =============
 - brownie compile ;
+- brownie run scripts/simple_collectible/deploy_and_create.py ;
+
+
+Notes
+=====
+#. We didn't upload an image to IPFS ourselves
+#. Why is IPFS decentralized?
+#. Anyone can mint an NFT here - not verifiably scarce or random

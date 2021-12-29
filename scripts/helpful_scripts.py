@@ -14,7 +14,7 @@ def get_breed(breed_number: int):
     return BREED_MAPPING[breed_number]
 
 
-def get_account(index = None, id = None):
+def get_account(index=None, id=None):
     if index is not None:
         return accounts[index]
     if network.show_active() in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
