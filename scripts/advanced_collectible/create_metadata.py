@@ -2,6 +2,7 @@ from brownie import AdvancedCollectible, network
 from scripts.helpful_scripts import get_breed
 from metadata.sample_metadata import metadata_template
 from pathlib import Path
+from enum import Enum
 import requests
 import json
 import os
@@ -42,20 +43,20 @@ def upload_to_ipfs(filepath):
 # PROJECT_RINKEBY = Path(PROJECT_MD, 'rinkeby')
 #
 #
-# class BREED(Enum):
-#     PUG = 0
-#     SHIBA_INU = 1
-#     ST_BERNARD = 2
+class BREED(Enum):
+    PUG = 0
+    SHIBA_INU = 1
+    ST_BERNARD = 2
 #
 # BREED_MAPPING = {e.value: e.name for e in BREED}
 #
 #
 #
-# breed_to_image_uri: dict[BREED, str] = {
-#     BREED.PUG: 'https://ipfs.io/ipfs/QmSsYRx3LpDAb1GZQm7zZ1AuHZjfbPkD6J7s9r41xu1mf8?filename=pug.png',
-#     BREED.SHIBA_INU: 'https://ipfs.io/ipfs/QmYx6GsYAKnNzZ9A6NvEKV9nf1VaDzJrqDR23Y8YSkebLU?filename=shiba-inu.png',
-#     BREED.ST_BERNARD: 'https://ipfs.io/ipfs/QmUPjADFGEKmfohdTaNcWhp7VGk26h5jXDA7v3VtTnTLcW?filename=st-bernard.png'
-# }
+breed_to_image_uri: dict[BREED, str] = {
+    BREED.PUG: 'https://ipfs.io/ipfs/QmSsYRx3LpDAb1GZQm7zZ1AuHZjfbPkD6J7s9r41xu1mf8?filename=pug.png',
+    BREED.SHIBA_INU: 'https://ipfs.io/ipfs/QmYx6GsYAKnNzZ9A6NvEKV9nf1VaDzJrqDR23Y8YSkebLU?filename=shiba-inu.png',
+    BREED.ST_BERNARD: 'https://ipfs.io/ipfs/QmUPjADFGEKmfohdTaNcWhp7VGk26h5jXDA7v3VtTnTLcW?filename=st-bernard.png'
+}
 #
 # def get_breed(breed_number: int):
 #     return BREED_MAPPING[breed_number]
@@ -91,9 +92,9 @@ def main():
     print(f"""You have created {number_of_advanced_collectibles} collectibles!""")
     for token_id in range(number_of_advanced_collectibles):
         breed = get_breed(advanced_collectible.tokenIdToBreed(token_id))
-        metadata_file_name = (f"""./metadata/{network.show_active()}/{token_id}-{breed}.json""")
+        metadata_file_name = f"""./metadata/{network.show_active()}/{token_id}-{breed}.json"""
         print(metadata_file_name)
-            collectible_metadata = metadata_template
+        collectible_metadata = metadata_template
 
         if Path(metadata_file_name).exists():
             print(f"""{metadata_file_name} already exists! Delete if to overwrite""")
