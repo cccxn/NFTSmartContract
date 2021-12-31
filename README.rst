@@ -30,3 +30,11 @@ Test
 ====
  - brownie test -k test_can_create_advanced_collectible ;
  - brownie test -k test_can_create_advanced_collectible_integration --network rinkeby
+
+IPFS
+====
+#. Download and install IPFS from:
+    - https://docs.ipfs.io/install/command-line/#official-distributions
+#. Run the IPFS Daemon using:
+    - ipfs init ;
+    - ipfs daemon ;
