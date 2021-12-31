@@ -24,3 +24,9 @@ Notes
 #. We didn't upload an image to IPFS ourselves
 #. Why is IPFS decentralized?
 #. Anyone can mint an NFT here - not verifiably scarce or random
+
+
+Test
+====
+ - brownie test -k test_can_create_advanced_collectible ;
+ - brownie test -k test_can_create_advanced_collectible_integration --network rinkeby
